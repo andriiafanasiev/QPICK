@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="flex max-w-[1100px] mx-auto p-[30px] radius-[10px] bg-white items-start w-full justify-between  rounded-tl-[30px] rounded-tr-[30px] drop-shadow-[0px_0px_20px_rgba(0,0,0,0.1)]">
+    <footer className="flex max-w-[1100px] mx-auto p-[30px] radius-[10px] bg-white items-start w-full justify-between  rounded-tl-[30px] rounded-tr-[30px] shadow-primary-shadow ">
       <div className="font-bold text-[25px]">QPICK</div>
       <nav>
         <ul className="text-start">

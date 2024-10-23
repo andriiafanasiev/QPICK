@@ -26,7 +26,7 @@ function PhoneSelector() {
           <img src="/img/icons/dropdown.svg" alt="dropdown icon" />
         </div>
         <ul
-          className={`absolute left-0 w-full bg-white border border-gray-300 flex flex-col rounded mt-1 ${
+          className={`absolute left-0 w-full bg-[#EAEAEA] border-none pb-5 pt-2 rounded-bl-[20px] rounded-br-[20px] shadow-primary-shadow flex flex-col rounded mt-1 ${
             isOpen ? '' : 'hidden'
           }`}
         >
