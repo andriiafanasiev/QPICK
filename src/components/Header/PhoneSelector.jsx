@@ -20,7 +20,7 @@ function PhoneSelector() {
       </div>
       <div className="relative" onClick={toggleDropdown}>
         <div className="flex items-center gap-[8px] w-full bg-transparent border-none cursor-pointer p-2">
-          <span className="block min-w-[150px] max-w-[200px] w-full truncate">
+          <span className="block text-start min-w-[150px] max-w-[200px] w-full truncate">
             {selectedPhone || 'Choose a phone model'}
           </span>
           <img src="/img/icons/dropdown.svg" alt="dropdown icon" />
