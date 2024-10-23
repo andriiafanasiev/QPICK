@@ -1,18 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
     <footer className="flex max-w-[1100px] mx-auto p-[30px] radius-[10px] bg-white items-start w-full justify-between  rounded-tl-[30px] rounded-tr-[30px] shadow-primary-shadow ">
-      <div className="font-bold text-[25px]">QPICK</div>
+      <Link to="/">
+        <div className="font-bold text-[25px]">QPICK</div>
+      </Link>
       <nav>
         <ul className="text-start">
-          <li>Favorites</li>
-          <li>Cart</li>
-          <li>Contacts</li>
+          <li>
+            <Link to={'/favorites'} className="hover:underline" href="/">
+              Favorites
+            </Link>
+          </li>
+          <li>
+            <Link to={'/cart'} className="hover:underline" href="/">
+              Cart
+            </Link>
+          </li>
+          <li>
+            <Link to={'/contacts'} className="hover:underline" href="/">
+              Contacts
+            </Link>
+          </li>
         </ul>
       </nav>
       <ul>
-        <li>Privacy Policy</li>
+        <li>
+          {' '}
+          <Link to={'/privacy'} className="hover:underline" href="/">
+            Privacy Policy
+          </Link>
+        </li>
       </ul>
       <ul className="flex gap-4">
         <li>
@@ -21,25 +41,25 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/icons/social/instagram.svg" alt="facebook icon" />
+            <img src="/img/icons/social/instagram.svg" alt="instagram icon" />
           </a>
         </li>
         <li>
           <a
-            href="https://twitter.com/"
+            href="https://web.telegram.org/a/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/icons/social/telegram.svg" alt="twitter icon" />
+            <img src="/img/icons/social/telegram.svg" alt="telegram icon" />
           </a>
         </li>
         <li>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.whatsapp.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/icons/social/whatsapp.svg" alt="instagram icon" />
+            <img src="/img/icons/social/whatsapp.svg" alt="whatsapp icon" />
           </a>
         </li>
       </ul>

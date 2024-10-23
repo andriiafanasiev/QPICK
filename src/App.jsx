@@ -1,13 +1,25 @@
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './pages/Main';
+import Cart from './pages/Cart';
+import Contacts from './pages/Contacts';
+import Favorites from './pages/Favorites';
+import Privacy from './pages/Privacy';
+import NoPage from './pages/NoPage';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <main className="flex-1 basis-auto"></main>
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" index element={<Main />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
