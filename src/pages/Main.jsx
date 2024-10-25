@@ -6,8 +6,8 @@ function Main() {
   return (
     <>
       <div className="flex flex-col max-w-[1100px] mx-auto pl-[5px] pr-[5px] mt-[22px]">
-        <div className=" flex flex-row justify-center h-[197px] items-center gap-[180px] rounded-[30px] w-full bg-[#101010]">
-          <h1 className="font-semibold text-3xl text-white">
+        <div className=" flex flex-row justify-center h-[197px] items-center sm:gap-[130px]  md:gap-[180px] rounded-[30px] w-full bg-[#101010]">
+          <h1 className="font-semibold  md:text-2xl lg:text-3xl sm:text-start md:text-center text-white">
             Accessories for <br />
             iPhone 13 Pro Max
           </h1>
