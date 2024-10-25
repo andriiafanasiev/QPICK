@@ -35,7 +35,7 @@ function Footer() {
         </li>
       </ul>
       <ul className="flex gap-4">
-        <li>
+        <li className="hover:scale-110 transition duration-150 ease-in-out">
           <a
             href="https://www.instagram.com/"
             target="_blank"
@@ -44,7 +44,7 @@ function Footer() {
             <img src="/img/icons/social/instagram.svg" alt="instagram icon" />
           </a>
         </li>
-        <li>
+        <li className="hover:scale-110 transition duration-150 ease-in-out">
           <a
             href="https://web.telegram.org/a/"
             target="_blank"
@@ -53,7 +53,7 @@ function Footer() {
             <img src="/img/icons/social/telegram.svg" alt="telegram icon" />
           </a>
         </li>
-        <li>
+        <li className="hover:scale-110 transition duration-150 ease-in-out">
           <a
             href="https://www.whatsapp.com/"
             target="_blank"
