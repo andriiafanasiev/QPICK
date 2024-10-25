@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProductCategory({ categoryName = 'category', children }) {
   return (
-    <div className="flex flex-col items-start p-4 w-full  ">
+    <div className="flex flex-col items-start pl-4 pr-4 pb-4 w-full  ">
       <h2 className="font-semibold text-xl text-gray mb-6">{categoryName}</h2>
 
       <div className="grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[30px] mx-auto ">
