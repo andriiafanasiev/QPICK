@@ -39,8 +39,8 @@ function Main() {
               name={product.name}
               image={product.image}
               price={product.price}
-              discount={product.discount}
               rating={product.rating}
+              discount={product.discount}
             />
           ))}
         </ProductCategory>

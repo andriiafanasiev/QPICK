@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ProductItem({ name, image, price, discount, rating }) {
+function ProductItem({ name, image, price, rating, discount }) {
   return (
-    <div className="flex text-[#1C1C27] text-[17px] font-semibold  flex-col relative shadow-primary-shadow text-center items-center justify-center gap-5 pl-24 pr-24 rounded-[20px] max-w-[350px] max-h-[410px] pt-6 pb-12 bg-white">
+    <div className="flex-1 text-[17px] font-semibold min-w-[calc(33.33%-1rem)] shadow-primary-shadow rounded-[30px] p-4  relative bg-white">
       <img
         className="absolute cursor-pointer top-[15px] left-[22px]"
         src="/img/icons/like.svg"
@@ -11,11 +11,14 @@ function ProductItem({ name, image, price, discount, rating }) {
       <div className="h-[240px] flex justify-center items-center">
         <img className="min-w-36" src={image} alt={name} />
       </div>
-      <div className="flex flex-row w-full justify-between ">
+      <div className="flex flex-row mt-12 justify-between ">
         <h4>{name}</h4>
-        <p className=" ">{price}</p>
+        <p className=" ">{price}$</p>
       </div>
-      <p className="text-[#1C1C27] text-[17px] font-semibold  ">{rating}</p>
+      <div className="flex flex-row  gap-3 mt-6 ">
+        <img src="/img/icons/star.svg" alt="" />
+        <p className="text-[#1C1C27] text-[17px] font-semibold  ">{rating}</p>
+      </div>
     </div>
   );
 }

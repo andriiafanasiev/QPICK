@@ -1,11 +1,13 @@
 import React from 'react';
 
 const ProductCategoryItem = ({ name, image }) => (
-  <div className="flex flex-col shadow-primary-shadow text-center items-center justify-center gap-5 pl-24 pr-24 rounded-[20px] max-w-[350px] max-h-[410px] pt-6 pb-12 bg-white">
+  <div className="flex-1  justify-center items-center text-[17px] font-semibold min-w-[calc(33.33%-1rem)] shadow-primary-shadow rounded-[30px] p-4 pb-12 pt-6  relative bg-white">
     <div>
-      <img className="min-w-36" src={image} alt={name} />
+      <img className="min-w-36 mx-auto" src={image} alt={name} />
     </div>
-    <div className="text-[#1C1C27] text-[17px] font-semibold  ">{name}</div>
+    <div className="text-[#1C1C27] mt-5 text-[17px] font-semibold  ">
+      {name}
+    </div>
   </div>
 );
 
