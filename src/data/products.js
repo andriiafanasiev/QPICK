@@ -2,7 +2,7 @@ const products = [
   {
     name: 'Apple BYZ S852I',
     price: 79.99,
-    discount: '-20%',
+    discount: '20',
     rating: 4.7,
     image: 'img/products/headphones/AppleBYZ.png',
   },
@@ -23,7 +23,7 @@ const products = [
   {
     name: 'Apple BYZ S852I',
     price: 79.99,
-    discount: '-20%',
+    discount: '20',
     rating: 4.7,
     image: 'img/products/headphones/AppleBYZ.png',
   },
