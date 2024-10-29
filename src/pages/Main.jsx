@@ -33,16 +33,34 @@ function Main() {
           />
         </ProductCategory>
         <ProductCategory categoryName="Headphones">
-          {products.map((product, index) => (
-            <ProductItem
-              key={index}
-              name={product.name}
-              image={product.image}
-              price={product.price}
-              rating={product.rating}
-              discount={product.discount}
-            />
-          ))}
+          {products
+            .filter((product) => product.category === 'Headphones')
+            .map((product, index) => (
+              <ProductItem
+                key={index}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                rating={product.rating}
+                discount={product.discount}
+                addToFavorites={() => {}}
+              />
+            ))}
+        </ProductCategory>
+        <ProductCategory categoryName="Wireless Headphones">
+          {products
+            .filter((product) => product.category === 'Wireless Headphones')
+            .map((product, index) => (
+              <ProductItem
+                key={index}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                rating={product.rating}
+                discount={product.discount}
+                addToFavorites={() => {}}
+              />
+            ))}
         </ProductCategory>
       </div>
     </>

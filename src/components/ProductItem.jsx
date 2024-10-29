@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ProductItem({ name, image, price, rating, discount }) {
+function ProductItem({ name, image, price, rating, discount, addToFavorites }) {
   const oldPrice = (price / (1 - discount / 100)).toFixed(2);
 
   return (
@@ -8,7 +8,9 @@ function ProductItem({ name, image, price, rating, discount }) {
       <img
         className="absolute cursor-pointer top-[15px] left-[22px]"
         src="/img/icons/like.svg"
-        alt=""
+        alt="to favorite"
+        title="Add to favorite"
+        onClick={() => addToFavorites(name)}
       />
       <div className="h-[240px] flex justify-center items-center">
         <img className="min-w-36" src={image} alt={name} />
