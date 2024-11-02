@@ -1,9 +1,6 @@
 import React from 'react';
 import ProductCategory from '../components/ProductCategory';
 import ProductCategoryItem from '../components/ProductCategoryItem';
-import ProductItem from '../components/ProductItem';
-
-import products from '../data/products';
 
 function Main() {
   return (
@@ -32,36 +29,8 @@ function Main() {
             image="/img/products/cases/leather.png"
           />
         </ProductCategory>
-        <ProductCategory categoryName="Headphones">
-          {products
-            .filter((product) => product.category === 'Headphones')
-            .map((product, index) => (
-              <ProductItem
-                key={index}
-                name={product.name}
-                image={product.image}
-                price={product.price}
-                rating={product.rating}
-                discount={product.discount}
-                addToFavorites={() => {}}
-              />
-            ))}
-        </ProductCategory>
-        <ProductCategory categoryName="Wireless Headphones">
-          {products
-            .filter((product) => product.category === 'Wireless Headphones')
-            .map((product, index) => (
-              <ProductItem
-                key={index}
-                name={product.name}
-                image={product.image}
-                price={product.price}
-                rating={product.rating}
-                discount={product.discount}
-                addToFavorites={() => {}}
-              />
-            ))}
-        </ProductCategory>
+        <ProductCategory categoryName="Headphones" />
+        <ProductCategory categoryName="Wireless Headphones" />
       </div>
     </>
   );
