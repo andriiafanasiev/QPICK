@@ -8,6 +8,7 @@ const ProductCategoryItem = ({ name, image }) => (
     <div className="text-[#1C1C27] mt-5 text-[17px] font-semibold  ">
       {name}
     </div>
+    
   </div>
 );
 

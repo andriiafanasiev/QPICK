@@ -2,7 +2,7 @@ import React from 'react';
 import ProductItem from './ProductItem';
 import products from '../data/products';
 
-function ProductCategory({ categoryName = 'category' }) {
+function ProductCategory({ categoryName = 'category', children }) {
   return (
     <div className="flex overflow-x-auto flex-col items-start pl-4 pr-4 pb-4 w-full">
       <h2 className="font-semibold mb-5 text-xl text-gray">{categoryName}</h2>
@@ -21,6 +21,7 @@ function ProductCategory({ categoryName = 'category' }) {
               addToFavorites={() => {}}
             />
           ))}
+        {children}
       </div>
     </div>
   );
