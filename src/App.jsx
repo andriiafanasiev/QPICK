@@ -14,7 +14,18 @@ function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem('products')) || productsArray
   );
-
+  const handleToogleToFavorites = (index) => {
+    const updatedProducts = [...products].map(
+      (currentProduct, currentProductIndex) => {
+        if (currentProductIndex === index) {
+          currentProduct.isFavorite = !currentProduct.isFavorite;
+        }
+        return currentProduct;
+      }
+    );
+    setProducts(updatedProducts);
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+  };
   const [cartItems, setCartItems] = useState([]);
   return (
     <div className="App">
@@ -23,11 +34,24 @@ function App() {
           <Route path="/" element={<MainLayout products={products} />}>
             <Route
               index
-              element={<Main products={products} setProducts={setProducts} />}
+              element={
+                <Main
+                  products={products}
+                  handleToogleToFavorites={handleToogleToFavorites}
+                />
+              }
             />
             <Route path="/cart" element={<Cart cartItems={cartItems} />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/favorites" element={<Favorites />} />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites
+                  products={products}
+                  handleToogleToFavorites={handleToogleToFavorites}
+                />
+              }
+            />
             <Route path="/privacy" element={<Privacy />} />
           </Route>
           <Route path="*" element={<NoPage />} />

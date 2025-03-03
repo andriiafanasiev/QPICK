@@ -3,23 +3,10 @@ import ProductItem from './ProductItem';
 
 function ProductCategory({
   categoryName = 'category',
-  products = [],
-  setProducts,
+  products,
+  handleToogleToFavorites,
   children,
 }) {
-  console.log('ProductCategory - products:', products);
-  const handleToogleToFavorites = (index) => {
-    const updatedProducts = [...products].map(
-      (currentProduct, currentProductIndex) => {
-        if (currentProductIndex === index) {
-          currentProduct.isFavorite = !currentProduct.isFavorite;
-        }
-        return currentProduct;
-      }
-    );
-    setProducts(updatedProducts);
-    localStorage.setItem('products', JSON.stringify(updatedProducts));
-  };
   return (
     <div className="flex overflow-x-auto flex-col items-start pl-4 pr-4 pb-4 w-full">
       <h2 className="font-semibold mb-5 text-xl text-gray">{categoryName}</h2>
@@ -29,7 +16,7 @@ function ProductCategory({
           .filter((product) => product.category === categoryName)
           .map((product, index) => (
             <ProductItem
-              key={index}
+              key={product.id}
               name={product.name}
               image={product.image}
               price={product.price}

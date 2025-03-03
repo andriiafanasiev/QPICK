@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     category: 'Headphones',
     name: 'Apple BYZ S852I',
     price: 79.99,
@@ -9,6 +10,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 2,
     category: 'Headphones',
     name: 'Apple EarPods',
     price: 49.99,
@@ -18,6 +20,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 3,
     category: 'Headphones',
     name: 'Apple EarPods',
     price: 49.99,
@@ -27,6 +30,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 4,
     category: 'Headphones',
     name: 'Apple BYZ S852I',
     price: 79.99,
@@ -36,6 +40,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 5,
     category: 'Headphones',
     name: 'Apple EarPods',
     price: 49.99,
@@ -45,6 +50,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 6,
     category: 'Headphones',
     name: 'Apple EarPods',
     price: 49.99,
@@ -54,6 +60,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 7,
     category: 'Wireless Headphones',
     name: 'Apple AirPods',
     price: 49.99,
@@ -63,6 +70,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 8,
     category: 'Wireless Headphones',
     name: 'AirPods Pro 2',
     price: 79.99,
@@ -72,6 +80,7 @@ const products = [
     isFavorite: false,
   },
   {
+    id: 9,
     category: 'Wireless Headphones',
     name: 'BOROFONE BO4',
     price: 19.99,
@@ -81,4 +90,5 @@ const products = [
     isFavorite: false,
   },
 ];
+
 export default products;

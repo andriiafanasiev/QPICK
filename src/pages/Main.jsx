@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCategory from '../components/ProductCategory';
 import ProductCategoryItem from '../components/ProductCategoryItem';
 
-function Main({ products, setProducts }) {
+function Main({ products, handleToogleToFavorites }) {
   return (
     <>
       <div className="flex flex-col max-w-[1100px] mx-auto pl-[5px] pr-[5px] mt-[22px]">
@@ -15,7 +15,11 @@ function Main({ products, setProducts }) {
             <img src="/img/hero.png" className="h-auto mt-3" alt="hero img" />
           </div>
         </div>
-        <ProductCategory categoryName="Cases">
+        <ProductCategory
+          products={products}
+          handleToogleToFavorites={handleToogleToFavorites}
+          categoryName="Cases"
+        >
           <ProductCategoryItem
             name="Glass"
             image="/img/products/cases/glass.png"
@@ -31,12 +35,12 @@ function Main({ products, setProducts }) {
         </ProductCategory>
         <ProductCategory
           products={products}
-          setProducts={setProducts}
+          handleToogleToFavorites={handleToogleToFavorites}
           categoryName="Headphones"
         />
         <ProductCategory
           products={products}
-          setProducts={setProducts}
+          handleToogleToFavorites={handleToogleToFavorites}
           categoryName="Wireless Headphones"
         />
       </div>
