@@ -6,28 +6,26 @@ import Favorites from './pages/Favorites';
 import Privacy from './pages/Privacy';
 import NoPage from './pages/NoPage';
 import MainLayout from './layouts/MainLayout';
-
-import './App.css';
+import productsArray from './data/products';
 import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem('products')) || productsArray
+  );
 
-  const addToCart = (item) => {
-    setCart([...cart, item]);
-  };
-
-  const removeFromCart = (item) => {
-    setCart(cart.filter((i) => i.id !== item.id));
-  };
-
+  const [cartItems, setCartItems] = useState([]);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Main />} />
-            <Route path="/cart" element={<Cart cartItems={cart} />} />
+          <Route path="/" element={<MainLayout products={products} />}>
+            <Route
+              index
+              element={<Main products={products} setProducts={setProducts} />}
+            />
+            <Route path="/cart" element={<Cart cartItems={cartItems} />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/privacy" element={<Privacy />} />

@@ -6,6 +6,7 @@ const products = [
     discount: '20',
     rating: 4.7,
     image: 'img/products/headphones/AppleBYZ.png',
+    isFavorite: false,
   },
   {
     category: 'Headphones',
@@ -14,6 +15,7 @@ const products = [
     discount: null,
     rating: 4.5,
     image: 'img/products/headphones/EarPods.png',
+    isFavorite: false,
   },
   {
     category: 'Headphones',
@@ -22,6 +24,7 @@ const products = [
     discount: null,
     rating: 4.5,
     image: 'img/products/headphones/EarPodsWithCase.png',
+    isFavorite: false,
   },
   {
     category: 'Headphones',
@@ -30,6 +33,7 @@ const products = [
     discount: '20',
     rating: 4.7,
     image: 'img/products/headphones/AppleBYZ.png',
+    isFavorite: false,
   },
   {
     category: 'Headphones',
@@ -38,6 +42,7 @@ const products = [
     discount: null,
     rating: 4.5,
     image: 'img/products/headphones/EarPods.png',
+    isFavorite: false,
   },
   {
     category: 'Headphones',
@@ -46,6 +51,7 @@ const products = [
     discount: 15,
     rating: 4.5,
     image: 'img/products/headphones/EarPodsWithCase.png',
+    isFavorite: false,
   },
   {
     category: 'Wireless Headphones',
@@ -54,6 +60,7 @@ const products = [
     discount: null,
     rating: 4.7,
     image: 'img/products/headphones/AirPods.png',
+    isFavorite: false,
   },
   {
     category: 'Wireless Headphones',
@@ -62,6 +69,7 @@ const products = [
     discount: '20',
     rating: '5.0',
     image: 'img/products/headphones/AirPodsPro2.png',
+    isFavorite: false,
   },
   {
     category: 'Wireless Headphones',
@@ -70,6 +78,7 @@ const products = [
     discount: null,
     rating: 4.5,
     image: 'img/products/headphones/borofone.png',
+    isFavorite: false,
   },
 ];
 export default products;

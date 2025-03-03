@@ -1,12 +1,11 @@
-import React from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { Outlet } from 'react-router-dom';
 
-function MainLayout() {
+function MainLayout({ products }) {
   return (
     <>
-      <Header />
+      <Header products={products} />
       <main className="flex-1 basis-auto">
         <Outlet />
       </main>

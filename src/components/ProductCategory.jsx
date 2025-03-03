@@ -1,8 +1,25 @@
 import React from 'react';
 import ProductItem from './ProductItem';
-import products from '../data/products';
 
-function ProductCategory({ categoryName = 'category', children }) {
+function ProductCategory({
+  categoryName = 'category',
+  products = [],
+  setProducts,
+  children,
+}) {
+  console.log('ProductCategory - products:', products);
+  const handleToogleToFavorites = (index) => {
+    const updatedProducts = [...products].map(
+      (currentProduct, currentProductIndex) => {
+        if (currentProductIndex === index) {
+          currentProduct.isFavorite = !currentProduct.isFavorite;
+        }
+        return currentProduct;
+      }
+    );
+    setProducts(updatedProducts);
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+  };
   return (
     <div className="flex overflow-x-auto flex-col items-start pl-4 pr-4 pb-4 w-full">
       <h2 className="font-semibold mb-5 text-xl text-gray">{categoryName}</h2>
@@ -18,7 +35,10 @@ function ProductCategory({ categoryName = 'category', children }) {
               price={product.price}
               rating={product.rating}
               discount={product.discount}
-              addToFavorites={() => {}}
+              toogleToFavorites={() => {
+                handleToogleToFavorites(index);
+              }}
+              isFavorite={product.isFavorite}
             />
           ))}
         {children}

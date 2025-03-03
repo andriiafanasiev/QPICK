@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCategory from '../components/ProductCategory';
 import ProductCategoryItem from '../components/ProductCategoryItem';
 
-function Main() {
+function Main({ products, setProducts }) {
   return (
     <>
       <div className="flex flex-col max-w-[1100px] mx-auto pl-[5px] pr-[5px] mt-[22px]">
@@ -12,7 +12,7 @@ function Main() {
             iPhone 13 Pro Max
           </h1>
           <div>
-            <img src="/img/hero.png" class="h-auto mt-3" alt="hero img" />
+            <img src="/img/hero.png" className="h-auto mt-3" alt="hero img" />
           </div>
         </div>
         <ProductCategory categoryName="Cases">
@@ -29,8 +29,16 @@ function Main() {
             image="/img/products/cases/leather.png"
           />
         </ProductCategory>
-        <ProductCategory categoryName="Headphones" />
-        <ProductCategory categoryName="Wireless Headphones" />
+        <ProductCategory
+          products={products}
+          setProducts={setProducts}
+          categoryName="Headphones"
+        />
+        <ProductCategory
+          products={products}
+          setProducts={setProducts}
+          categoryName="Wireless Headphones"
+        />
       </div>
     </>
   );
