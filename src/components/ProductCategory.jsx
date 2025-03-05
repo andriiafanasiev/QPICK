@@ -14,7 +14,7 @@ function ProductCategory({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-full">
         {products
           .filter((product) => product.category === categoryName)
-          .map((product, index) => (
+          .map((product) => (
             <ProductItem
               key={product.id}
               name={product.name}
@@ -23,7 +23,7 @@ function ProductCategory({
               rating={product.rating}
               discount={product.discount}
               toogleToFavorites={() => {
-                handleToogleToFavorites(index);
+                handleToogleToFavorites(product);
               }}
               isFavorite={product.isFavorite}
             />

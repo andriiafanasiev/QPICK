@@ -7,7 +7,7 @@ function Favorites({ products, handleToogleToFavorites }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-full">
         {products
           .filter((product) => product.isFavorite)
-          .map((product, index) => (
+          .map((product) => (
             <ProductItem
               key={product.id}
               name={product.name}
@@ -15,10 +15,8 @@ function Favorites({ products, handleToogleToFavorites }) {
               price={product.price}
               rating={product.rating}
               discount={product.discount}
-              toogleToFavorites={() => {
-                handleToogleToFavorites(product.id);
-              }}
               isFavorite={product.isFavorite}
+              toogleToFavorites={() => handleToogleToFavorites(product)}
             />
           ))}
       </div>

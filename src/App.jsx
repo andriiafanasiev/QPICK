@@ -7,25 +7,25 @@ import Privacy from './pages/Privacy';
 import NoPage from './pages/NoPage';
 import MainLayout from './layouts/MainLayout';
 import productsArray from './data/products';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem('products')) || productsArray
   );
-  useEffect(() => {
-    localStorage.setItem('products', JSON.stringify(products));
-  }, [products]);
 
-  const handleToogleToFavorites = (productId) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((product) =>
-        product.id === productId
-          ? { ...product, isFavorite: !product.isFavorite }
-          : product
-      )
+  // Оновлення списку товарів в localStorage
+  const saveProductsToLocalStorage = (updatedProducts) => {
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+  };
+
+  const handleToogleToFavorites = (product) => {
+    const updatedProducts = products.map((item) =>
+      item.id === product.id ? { ...item, isFavorite: !item.isFavorite } : item
     );
+    setProducts(updatedProducts);
+    saveProductsToLocalStorage(updatedProducts);
   };
 
   const [cartItems, setCartItems] = useState([]);
