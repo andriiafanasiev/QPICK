@@ -7,25 +7,27 @@ import Privacy from './pages/Privacy';
 import NoPage from './pages/NoPage';
 import MainLayout from './layouts/MainLayout';
 import productsArray from './data/products';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem('products')) || productsArray
   );
-  const handleToogleToFavorites = (index) => {
-    const updatedProducts = [...products].map(
-      (currentProduct, currentProductIndex) => {
-        if (currentProductIndex === index) {
-          currentProduct.isFavorite = !currentProduct.isFavorite;
-        }
-        return currentProduct;
-      }
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
+  const handleToogleToFavorites = (productId) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId
+          ? { ...product, isFavorite: !product.isFavorite }
+          : product
+      )
     );
-    setProducts(updatedProducts);
-    localStorage.setItem('products', JSON.stringify(updatedProducts));
   };
+
   const [cartItems, setCartItems] = useState([]);
   return (
     <div className="App">

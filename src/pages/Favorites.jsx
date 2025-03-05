@@ -16,7 +16,7 @@ function Favorites({ products, handleToogleToFavorites }) {
               rating={product.rating}
               discount={product.discount}
               toogleToFavorites={() => {
-                handleToogleToFavorites(index);
+                handleToogleToFavorites(product.id);
               }}
               isFavorite={product.isFavorite}
             />
