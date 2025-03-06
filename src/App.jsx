@@ -15,7 +15,6 @@ function App() {
     JSON.parse(localStorage.getItem('products')) || productsArray
   );
 
-  // Оновлення списку товарів в localStorage
   const saveProductsToLocalStorage = (updatedProducts) => {
     localStorage.setItem('products', JSON.stringify(updatedProducts));
   };
