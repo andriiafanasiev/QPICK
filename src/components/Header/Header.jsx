@@ -13,7 +13,9 @@ function Header({ products }) {
           <Link to=".">
             <div className="font-bold text-[25px]">QPICK</div>
           </Link>
-          <PhoneSelector />
+          <div className="hidden md:block">
+            <PhoneSelector />
+          </div>
         </div>
         <div>
           <div className="flex items-center gap-[25px]">

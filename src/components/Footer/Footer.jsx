@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="flex max-w-[1100px] mx-auto p-[30px] radius-[10px] bg-white items-start w-full justify-between  rounded-tl-[30px] rounded-tr-[30px] shadow-primary-shadow ">
+    <footer className="hidden md:flex max-w-[1100px] mx-auto p-[30px] radius-[10px] bg-white items-start w-full justify-between  rounded-tl-[30px] rounded-tr-[30px] shadow-primary-shadow ">
       <Link to=".">
         <div className="font-bold text-[25px]">QPICK</div>
       </Link>

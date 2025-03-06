@@ -10,7 +10,7 @@ function Favorites({ products, handleToogleToFavorites }) {
         <div className="flex flex-col items-center justify-center gap-8 mt-14 mb-14">
           <div className="text-center">
             <h2 className="text-3xl font-medium text-gray-800">
-              Your have no favorites products yet :(
+              You have no favorites products yet :(
             </h2>
             <p className="text-[#838383]">
               But it's never too late to fix it :)
