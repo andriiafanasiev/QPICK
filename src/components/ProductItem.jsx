@@ -37,9 +37,14 @@ function ProductItem({
           </div>
         )}
       </div>
-      <div className="flex flex-row  gap-3 mt-6 ">
-        <img src="/img/icons/star.svg" alt="" />
-        <p className="text-[#1C1C27] text-[17px] font-semibold  ">{rating}</p>
+      <div className="flex justify-between flex-row items-end">
+        <div className="flex flex-row  gap-3 mt-6 ">
+          <img src="/img/icons/star.svg" alt="" />
+          <p className="text-[#1C1C27] text-[17px] font-semibold  ">{rating}</p>
+        </div>
+        <button className="bg-black text-white rounded-md px-2 py-1">
+          Add to cart
+        </button>
       </div>
     </div>
   );
