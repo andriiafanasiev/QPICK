@@ -3,7 +3,7 @@
   "short_name": "QPICK",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/favicon-dark.png",
       "sizes": "192x192",
       "type": "image/png"
     }
