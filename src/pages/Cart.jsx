@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
-import ProductItem from '../components/ProductItem';
+import CartItem from '../components/CartItem';
 
 function Cart({ cartItems }) {
   const hasItems = cartItems.length > 0;
 
   return (
-    <div className="h-full flex items-center justify-center mx-auto max-w-[1100px]">
+    <div className="h-full flex items-center justify-center mx-auto max-w-[1100px] mb-2">
       {hasItems ? (
-        <div>
+        <div className="w-full">
           <h1 className="text-3xl font-medium text-gray-800">Your cart</h1>
 
-          <ul className="mt-8 w-full gap-2 md:gap-4 lg:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+          <ul className="mt-8 w-full px-4 gap-2 md:gap-4 flex flex-col ">
             {cartItems.map((product) => (
-              <ProductItem
+              <CartItem
                 key={product.id}
                 name={product.name}
                 image={product.image}

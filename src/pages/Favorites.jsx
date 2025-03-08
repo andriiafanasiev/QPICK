@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from '../components/ProductItem';
 
-function Favorites({ products, handleToogleToFavorites }) {
+function Favorites({ products, handleToogleToFavorites, handleAddToCart }) {
   const favoritesProducts = products.filter((product) => product.isFavorite);
 
   return (
@@ -28,6 +28,7 @@ function Favorites({ products, handleToogleToFavorites }) {
               rating={product.rating}
               discount={product.discount}
               isFavorite={product.isFavorite}
+              addToCart={() => handleAddToCart(product)}
               toogleToFavorites={() => handleToogleToFavorites(product)}
             />
           ))}

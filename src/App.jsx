@@ -58,6 +58,7 @@ function App() {
                 <Favorites
                   products={products}
                   handleToogleToFavorites={handleToogleToFavorites}
+                  handleAddToCart={handleAddToCart}
                 />
               }
             />

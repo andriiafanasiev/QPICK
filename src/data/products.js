@@ -73,7 +73,7 @@ const products = [
     id: 8,
     category: 'Wireless Headphones',
     name: 'AirPods Pro 2',
-    price: 79.99,
+    price: 199.99,
     discount: '20',
     rating: '5.0',
     image: 'img/products/headphones/AirPodsPro2.png',
