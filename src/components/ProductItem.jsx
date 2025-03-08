@@ -7,19 +7,23 @@ function ProductItem({
   rating,
   discount,
   toogleToFavorites,
+  addToCart,
   isFavorite,
+  isInCart,
 }) {
   const oldPrice = (price / (1 - discount / 100)).toFixed(2);
 
   return (
     <div className="flex-1 text-[17px] font-semibold min-w-[calc(33.33%-1rem)] shadow-primary-shadow rounded-[30px] p-4  relative bg-white">
-      <img
-        className="absolute cursor-pointer top-[15px] left-[22px]"
-        src={isFavorite ? '/img/icons/liked.svg' : '/img/icons/like.svg'}
-        alt="to favorite"
-        title="Add to favorite"
-        onClick={() => toogleToFavorites()}
-      />
+      {!isInCart && (
+        <img
+          className="absolute cursor-pointer top-[15px] left-[22px]"
+          src={isFavorite ? '/img/icons/liked.svg' : '/img/icons/like.svg'}
+          alt="to favorite"
+          title="Add to favorite"
+          onClick={() => toogleToFavorites()}
+        />
+      )}
       <div className="h-[240px] flex justify-center items-center">
         <img className="min-w-36" src={image} alt={name} />
       </div>
@@ -42,9 +46,14 @@ function ProductItem({
           <img src="/img/icons/star.svg" alt="" />
           <p className="text-[#1C1C27] text-[17px] font-semibold  ">{rating}</p>
         </div>
-        <button className="bg-black text-white rounded-md px-2 py-1">
-          Add to cart
-        </button>
+        {!isInCart && (
+          <button
+            onClick={() => addToCart()}
+            className="bg-black text-white rounded-md px-2 py-1"
+          >
+            Add to cart
+          </button>
+        )}
       </div>
     </div>
   );

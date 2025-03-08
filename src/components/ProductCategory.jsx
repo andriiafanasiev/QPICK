@@ -5,6 +5,7 @@ function ProductCategory({
   categoryName = 'category',
   products,
   handleToogleToFavorites,
+  handleAddToCart,
   children,
 }) {
   return (
@@ -24,6 +25,9 @@ function ProductCategory({
               discount={product.discount}
               toogleToFavorites={() => {
                 handleToogleToFavorites(product);
+              }}
+              addToCart={() => {
+                handleAddToCart(product);
               }}
               isFavorite={product.isFavorite}
             />

@@ -15,30 +15,38 @@ function App() {
     JSON.parse(localStorage.getItem('products')) || productsArray
   );
 
-  const saveProductsToLocalStorage = (updatedProducts) => {
-    localStorage.setItem('products', JSON.stringify(updatedProducts));
-  };
-
   const handleToogleToFavorites = (product) => {
     const updatedProducts = products.map((item) =>
       item.id === product.id ? { ...item, isFavorite: !item.isFavorite } : item
     );
     setProducts(updatedProducts);
-    saveProductsToLocalStorage(updatedProducts);
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
   };
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem('cart')) || []
+  );
+
+  const handleAddToCart = (product) => {
+    const updatedCart = [...cartItems, product];
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout products={products} />}>
+          <Route
+            path="/"
+            element={<MainLayout cartItems={cartItems} products={products} />}
+          >
             <Route
               index
               element={
                 <Main
                   products={products}
                   handleToogleToFavorites={handleToogleToFavorites}
+                  handleAddToCart={handleAddToCart}
                 />
               }
             />

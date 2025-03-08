@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCategory from '../components/ProductCategory';
 import ProductCategoryItem from '../components/ProductCategoryItem';
 
-function Main({ products, handleToogleToFavorites }) {
+function Main({ products, handleToogleToFavorites, handleAddToCart }) {
   return (
     <>
       <div className="flex flex-col max-w-[1100px] mx-auto pl-[5px] pr-[5px] mt-[22px]">
@@ -36,11 +36,13 @@ function Main({ products, handleToogleToFavorites }) {
         <ProductCategory
           products={products}
           handleToogleToFavorites={handleToogleToFavorites}
+          handleAddToCart={handleAddToCart}
           categoryName="Headphones"
         />
         <ProductCategory
           products={products}
           handleToogleToFavorites={handleToogleToFavorites}
+          handleAddToCart={handleAddToCart}
           categoryName="Wireless Headphones"
         />
       </div>

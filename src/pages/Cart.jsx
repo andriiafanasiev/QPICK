@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ProductItem from '../components/ProductItem';
 
 function Cart({ cartItems }) {
   const hasItems = cartItems.length > 0;
@@ -7,13 +8,20 @@ function Cart({ cartItems }) {
     <div className="h-full flex items-center justify-center mx-auto max-w-[1100px]">
       {hasItems ? (
         <div>
-          <h1 className="text-3xl font-medium text-gray-800">Cart</h1>
+          <h1 className="text-3xl font-medium text-gray-800">Your cart</h1>
 
-          <ul className="mt-8">
-            {cartItems.map((item) => (
-              <li key={item.id} className="mb-4">
-                <h2 className="text-xl">{item.name}</h2>
-              </li>
+          <ul className="mt-8 w-full gap-2 md:gap-4 lg:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+            {cartItems.map((product) => (
+              <ProductItem
+                key={product.id}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                rating={product.rating}
+                discount={product.discount}
+                isFavorite={product.isFavorite}
+                isInCart={true}
+              />
             ))}
           </ul>
         </div>
