@@ -7,7 +7,7 @@ function Header({ products, cartItems }) {
     : [];
 
   return (
-    <header>
+    <header className="px-2">
       <div className="flex max-w-[1100px] p-[10px] items-center w-full justify-between mx-auto">
         <div className="flex justify-between items-center gap-[75px]">
           <Link to=".">
