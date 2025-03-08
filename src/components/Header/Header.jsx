@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PhoneSelector from './PhoneSelector';
 
-function Header({ products }) {
+function Header({ products, cartItems }) {
   const favoritesProducts = products
     ? products.filter((product) => product.isFavorite)
     : [];
@@ -28,7 +28,7 @@ function Header({ products }) {
             <Link to={'cart'} className="relative cursor-pointer ">
               <img src="/img/icons/cart.svg" alt="" />
               <span className=" absolute top-[-10px] right-[-10px] font-medium bg-[#FFA542] text-[15px] text-white rounded-full w-[17px] h-[17px] flex items-center justify-center ">
-                0
+                {cartItems.length}
               </span>
             </Link>
           </div>
