@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 
-function CartItem({ name, image, price }) {
+function CartItem({ name, image, price, handleRemoveFromCart }) {
   const [quantity, setQuantity] = useState(1);
   return (
     <div className="flex-1 text-[17px] font-semibold w-full md:w-[50%] shadow-primary-shadow rounded-[30px] p-4 py-6  relative bg-white">
@@ -34,7 +34,7 @@ function CartItem({ name, image, price }) {
         </div>
         <p>{Math.round(price * quantity * 100) / 100}$</p>
       </div>
-      <button className="absolute top-5 right-5">
+      <button onClick={handleRemoveFromCart} className="absolute top-5 right-5">
         <MdDeleteForever className="w-6 h-6" />
       </button>
     </div>

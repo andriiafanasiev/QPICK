@@ -32,6 +32,12 @@ function App() {
     setCartItems(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
+  const handleRemoveFromCart = (product) => {
+    const updatedCart = cartItems.filter((cartItem) => {
+      return cartItem.id !== product.id;
+    });
+    setCartItems(updatedCart);
+  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -50,7 +56,15 @@ function App() {
                 />
               }
             />
-            <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+            <Route
+              path="/cart"
+              element={
+                <Cart
+                  cartItems={cartItems}
+                  handleRemoveFromCart={handleRemoveFromCart}
+                />
+              }
+            />
             <Route path="/contacts" element={<Contacts />} />
             <Route
               path="/favorites"

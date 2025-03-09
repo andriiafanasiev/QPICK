@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, handleRemoveFromCart }) {
   const hasItems = cartItems.length > 0;
 
   return (
@@ -20,7 +20,9 @@ function Cart({ cartItems }) {
                 rating={product.rating}
                 discount={product.discount}
                 isFavorite={product.isFavorite}
-                isInCart={true}
+                handleRemoveFromCart={() => {
+                  handleRemoveFromCart(product);
+                }}
               />
             ))}
           </ul>
