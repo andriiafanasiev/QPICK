@@ -28,9 +28,11 @@ function App() {
   );
 
   const handleAddToCart = (product) => {
-    const updatedCart = [...cartItems, product];
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    if (!cartItems.includes(product)) {
+      const updatedCart = [...cartItems, product];
+      setCartItems(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    }
   };
   const handleRemoveFromCart = (product) => {
     const updatedCart = cartItems.filter((cartItem) => {
@@ -38,6 +40,7 @@ function App() {
     });
     setCartItems(updatedCart);
   };
+
   return (
     <div className="App">
       <BrowserRouter>

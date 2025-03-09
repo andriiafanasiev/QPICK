@@ -2,10 +2,16 @@ import React from 'react';
 import { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 
-function CartItem({ name, image, price, handleRemoveFromCart }) {
-  const [quantity, setQuantity] = useState(1);
+function CartItem({
+  name,
+  image,
+  price,
+  quantity,
+  updateQuantity,
+  handleRemoveFromCart,
+}) {
   return (
-    <div className="flex-1 text-[17px] font-semibold w-full md:w-[50%] shadow-primary-shadow rounded-[30px] p-4 py-6  relative bg-white">
+    <div className="flex-1 text-[17px] font-semibold w-full shadow-primary-shadow rounded-[30px] p-4 py-6  relative bg-white">
       <div className="flex flex-row gap-3  items-center">
         <div className="h-[120px] flex justify-center items-center">
           <img className="w-auto h-full" src={image} alt={name} />
@@ -20,22 +26,25 @@ function CartItem({ name, image, price, handleRemoveFromCart }) {
         <div className="flex flex-row gap-2 items-center">
           <button
             className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
-            onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+            onClick={() => updateQuantity(Math.max(1, quantity - 1))}
           >
             −
           </button>
           <p className="w-8">{quantity}</p>
           <button
             className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
-            onClick={() => setQuantity((prev) => prev + 1)}
+            onClick={() => updateQuantity(quantity + 1)}
           >
             +
           </button>
         </div>
-        <p>{Math.round(price * quantity * 100) / 100}$</p>
+        <p>{(price * quantity).toFixed(2)}$</p>
       </div>
-      <button onClick={handleRemoveFromCart} className="absolute top-5 right-5">
-        <MdDeleteForever className="w-6 h-6" />
+      <button
+        onClick={handleRemoveFromCart}
+        className="absolute top-5 right-5 transition duration-200 ease-in-out hover:text-red-600"
+      >
+        <MdDeleteForever className="w-6 h-6 " />
       </button>
     </div>
   );
