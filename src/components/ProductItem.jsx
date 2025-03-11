@@ -47,7 +47,7 @@ function ProductItem({
 
         <button
           onClick={() => addToCart()}
-          className="bg-black text-white rounded-md px-2 py-1"
+          className="bg-black text-white rounded-md px-2 py-1 hover:bg-gray-800 active:bg-gray-900"
         >
           Add to cart
         </button>

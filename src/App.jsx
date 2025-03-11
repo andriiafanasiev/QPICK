@@ -9,6 +9,10 @@ import MainLayout from './layouts/MainLayout';
 import productsArray from './data/products';
 import { useState } from 'react';
 import './App.css';
+import React from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [products, setProducts] = useState(
@@ -29,20 +33,25 @@ function App() {
 
   const handleAddToCart = (product) => {
     if (!cartItems.includes(product)) {
+      toast.success(`${product.name} was added to cart`, { autoClose: 5000 });
+
       const updatedCart = [...cartItems, product];
       setCartItems(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     }
   };
   const handleRemoveFromCart = (product) => {
+    toast.success(`${product.name} was removed from cart`, { autoClose: 5000 });
     const updatedCart = cartItems.filter((cartItem) => {
       return cartItem.id !== product.id;
     });
     setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
   return (
     <div className="App">
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route

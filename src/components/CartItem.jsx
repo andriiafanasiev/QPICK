@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+
 import { MdDeleteForever } from 'react-icons/md';
 
 function CartItem({
