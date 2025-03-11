@@ -33,7 +33,7 @@ function App() {
 
   const handleAddToCart = (product) => {
     if (!cartItems.includes(product)) {
-      toast.success(`${product.name} was added to cart`, { autoClose: 5000 });
+      toast.success(`${product.name} was added to cart`, { autoClose: 2000 });
 
       const updatedCart = [...cartItems, product];
       setCartItems(updatedCart);
@@ -41,7 +41,7 @@ function App() {
     }
   };
   const handleRemoveFromCart = (product) => {
-    toast.success(`${product.name} was removed from cart`, { autoClose: 5000 });
+    toast.success(`${product.name} was removed from cart`, { autoClose: 2000 });
     const updatedCart = cartItems.filter((cartItem) => {
       return cartItem.id !== product.id;
     });
