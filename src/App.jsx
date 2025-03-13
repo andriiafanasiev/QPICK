@@ -41,7 +41,7 @@ function App() {
     }
   };
   const handleRemoveFromCart = (product) => {
-    toast.success(`${product.name} was removed from cart`, { autoClose: 2000 });
+    toast.success(`${product.name} removed from cart`, { autoClose: 2000 });
     const updatedCart = cartItems.filter((cartItem) => {
       return cartItem.id !== product.id;
     });
