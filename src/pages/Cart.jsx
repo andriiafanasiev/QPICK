@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 import { useState } from 'react';
+import DeliveryCard from '../components/DeliveryCard';
 
 function Cart({ cartItems, handleRemoveFromCart }) {
   const hasItems = cartItems.length > 0;
@@ -25,7 +26,7 @@ function Cart({ cartItems, handleRemoveFromCart }) {
           <h1 className="text-3xl font-medium text-gray-800">Your cart</h1>
           <div className="w-full flex flex-row flex-wrap">
             <div className="w-full md:w-[60%]">
-              <ul className="mt-8 w-full   md:max-h-[445px] overflow-scroll px-4 gap-2 md:gap-4 flex flex-col ">
+              <ul className="mt-8 w-full mb-8   md:max-h-[445px] overflow-scroll px-4 gap-2 md:gap-4 flex flex-col ">
                 {cartItems.map((product) => (
                   <CartItem
                     key={product.id}
@@ -45,6 +46,9 @@ function Cart({ cartItems, handleRemoveFromCart }) {
                   />
                 ))}
               </ul>
+              <div className="px-4">
+                <DeliveryCard />
+              </div>
             </div>
             <div className="w-full max-h-fit md:w-[40%] mt-10 md:max-w-80 mx-5  md:mx-auto bg-white rounded-3xl">
               <div className="flex justify-between px-4 py-4">
