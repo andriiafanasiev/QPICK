@@ -45,7 +45,7 @@ function App() {
     const updatedCart = cartItems.filter((cartItem) => {
       return cartItem.id !== product.id;
     });
-    setCartItems(updatedCart);
+    setCartItems([...updatedCart]);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
