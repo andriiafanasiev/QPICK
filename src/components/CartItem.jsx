@@ -26,7 +26,13 @@ function CartItem({
         <div className="flex flex-row gap-2 items-center">
           <button
             className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
-            onClick={() => updateQuantity(Math.max(1, quantity - 1))}
+            onClick={() => {
+              if (quantity === 1) {
+                handleRemoveFromCart();
+                return;
+              }
+              updateQuantity(Math.max(1, quantity - 1));
+            }}
           >
             −
           </button>
