@@ -27,7 +27,7 @@ function CartItem({
           <button
             className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
             onClick={() => {
-              if (quantity === 1) {
+              if (quantity - 1 < 1) {
                 handleRemoveFromCart();
                 return;
               }
