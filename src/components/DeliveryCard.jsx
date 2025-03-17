@@ -49,7 +49,7 @@ const DeliveryCard = () => {
   }, []);
 
   return (
-    <div className="p-4 shadow-lg rounded-2xl w-full bg-white">
+    <div className="p-4  rounded-2xl w-full bg-white">
       <h2 className="text-lg font-semibold mb-2">Delivery</h2>
       <div className="relative w-full h-40 rounded-lg overflow-hidden">
         <MapContainer

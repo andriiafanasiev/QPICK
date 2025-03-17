@@ -13,6 +13,7 @@ import Cart from './pages/Cart';
 import Contacts from './pages/Contacts';
 import Favorites from './pages/Favorites';
 import Privacy from './pages/Privacy';
+import Offer from './pages/Offer';
 import NoPage from './pages/NoPage';
 import MainLayout from './layouts/MainLayout';
 import productsArray from './data/products';
@@ -85,6 +86,14 @@ function AnimatedRoutes({
               </PageWrapper>
             }
           />
+          <Route
+            path="/offer"
+            element={
+              <PageWrapper>
+                <Offer />
+              </PageWrapper>
+            }
+          ></Route>
         </Route>
         <Route
           path="*"

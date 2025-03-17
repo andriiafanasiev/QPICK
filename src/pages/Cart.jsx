@@ -46,8 +46,8 @@ function Cart({ cartItems, handleRemoveFromCart }) {
                   />
                 ))}
               </ul>
-              <div className="px-4">
-                <DeliveryCard />
+              <div className="px-4 ">
+                <DeliveryCard className="shadow-lg" />
               </div>
             </div>
             <div className="w-full max-h-fit md:w-[40%] mt-10 md:max-w-80 mx-5  md:mx-auto bg-white rounded-3xl">
@@ -56,9 +56,12 @@ function Cart({ cartItems, handleRemoveFromCart }) {
                 <p className="font-semibold">${totalPrice.toFixed(2)}</p>
               </div>
 
-              <button className="bg-[#101010] w-full text-white font-medium py-4 px-6 shadow-primary-shadow hover:bg-gray-800 rounded-[20px]">
+              <Link
+                to={'/offer'}
+                className="bg-[#101010] flex text-center items-center justify-center w-full text-white font-medium py-4 px-6 shadow-primary-shadow hover:bg-gray-800 rounded-[20px]"
+              >
                 Go to offer
-              </button>
+              </Link>
             </div>
           </div>
         </div>
