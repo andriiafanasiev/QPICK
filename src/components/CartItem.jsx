@@ -25,7 +25,7 @@ function CartItem({
       <div className="flex flex-row justify-between mt-3  items-center">
         <div className="flex flex-row gap-2 items-center">
           <button
-            className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
+            className="w-8 h-8 text-white bg-yellow-300 rounded-full flex items-center justify-center text-2xl font-bold transition duration-300 hover:bg-yellow-400 hover:scale-110 active:scale-95"
             onClick={() => {
               if (quantity - 1 < 1) {
                 setTimeout(() => handleRemoveFromCart(), 0);
@@ -36,9 +36,9 @@ function CartItem({
           >
             −
           </button>
-          <p className="w-8">{quantity}</p>
+          <p className="w-8 text-center">{quantity}</p>
           <button
-            className="w-8 h-8 text-white bg-yellow-300  rounded-full flex items-center justify-center text-2xl font-bold"
+            className="w-8 h-8 text-white bg-yellow-300 rounded-full flex items-center justify-center text-2xl font-bold transition duration-300 hover:bg-yellow-400 hover:scale-110 active:scale-95"
             onClick={() => updateQuantity(quantity + 1)}
           >
             +
