@@ -17,7 +17,7 @@ function Offer({ cartItems, setCartItems }) {
     }, 3500);
     setTimeout(() => {
       setOrderConfirmed(false);
-    }, 3500);
+    }, 3600);
   };
   const orderNumber = Math.floor(Math.random() * 1000000);
 

@@ -19,6 +19,19 @@ import MainLayout from './layouts/MainLayout';
 import productsArray from './data/products';
 import './App.css';
 
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function AnimatedRoutes({
   cartItems,
   products,
@@ -49,7 +62,7 @@ function AnimatedRoutes({
             }
           />
           <Route
-            path="/cart"
+            path="cart"
             element={
               <PageWrapper>
                 <Cart
@@ -59,9 +72,17 @@ function AnimatedRoutes({
                 />
               </PageWrapper>
             }
+          ></Route>
+          <Route
+            path="offer"
+            element={
+              <PageWrapper>
+                <Offer setCartItems={setCartItems} cartItems={cartItems} />
+              </PageWrapper>
+            }
           />
           <Route
-            path="/contacts"
+            path="contacts"
             element={
               <PageWrapper>
                 <Contacts />
@@ -69,7 +90,7 @@ function AnimatedRoutes({
             }
           />
           <Route
-            path="/favorites"
+            path="favorites"
             element={
               <PageWrapper>
                 <Favorites
@@ -81,7 +102,7 @@ function AnimatedRoutes({
             }
           />
           <Route
-            path="/privacy"
+            path="privacy"
             element={
               <PageWrapper>
                 <Privacy />
@@ -89,43 +110,25 @@ function AnimatedRoutes({
             }
           />
           <Route
-            path="/offer"
+            path="*"
             element={
               <PageWrapper>
-                <Offer setCartItems={setCartItems} cartItems={cartItems} />
+                <NoPage />
               </PageWrapper>
             }
-          ></Route>
+          />
         </Route>
-        <Route
-          path="*"
-          element={
-            <PageWrapper>
-              <NoPage />
-            </PageWrapper>
-          }
-        />
       </Routes>
     </AnimatePresence>
-  );
-}
-
-function PageWrapper({ children }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {children}
-    </motion.div>
   );
 }
 
 function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem('products')) || productsArray
+  );
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem('cart')) || []
   );
 
   const handleToogleToFavorites = (product) => {
@@ -136,14 +139,9 @@ function App() {
     localStorage.setItem('products', JSON.stringify(updatedProducts));
   };
 
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem('cart')) || []
-  );
-
   const handleAddToCart = (product) => {
     if (!cartItems.includes(product)) {
       toast.success(`${product.name} was added to cart`, { autoClose: 2000 });
-
       const updatedCart = [...cartItems, product];
       setCartItems(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
