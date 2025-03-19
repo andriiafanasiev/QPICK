@@ -92,7 +92,7 @@ function AnimatedRoutes({
             path="/offer"
             element={
               <PageWrapper>
-                <Offer cartItems={cartItems} />
+                <Offer setCartItems={setCartItems} cartItems={cartItems} />
               </PageWrapper>
             }
           ></Route>
