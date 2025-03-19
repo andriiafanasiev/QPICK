@@ -1,21 +1,25 @@
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
-import { useState } from 'react';
 import DeliveryCard from '../components/DeliveryCard';
 
-function Cart({ cartItems, handleRemoveFromCart }) {
+function Cart({ cartItems, handleRemoveFromCart, setCartItems }) {
+  const DELIVERY_PRICE = 4.99;
   const hasItems = cartItems.length > 0;
 
-  const [quantities, setQuantities] = useState(
-    cartItems.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {})
-  );
-
   const updateQuantity = (id, newQuantity) => {
-    setQuantities((prev) => ({ ...prev, [id]: newQuantity }));
+    setCartItems((prev) => {
+      const updatedItems = prev.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      });
+      return updatedItems;
+    });
   };
 
   const totalPrice = cartItems.reduce(
-    (sum, product) => sum + product.price * (quantities[product.id] || 1),
+    (sum, product) => sum + product.price * (product.quantity || 1),
     0
   );
 
@@ -36,7 +40,7 @@ function Cart({ cartItems, handleRemoveFromCart }) {
                     rating={product.rating}
                     discount={product.discount}
                     isFavorite={product.isFavorite}
-                    quantity={quantities[product.id]}
+                    quantity={product.quantity || 1}
                     updateQuantity={(newQuantity) =>
                       updateQuantity(product.id, newQuantity)
                     }
@@ -53,7 +57,9 @@ function Cart({ cartItems, handleRemoveFromCart }) {
             <div className="w-full max-h-fit md:w-[40%] mt-10 md:max-w-80 mx-5  md:mx-auto bg-white rounded-3xl">
               <div className="flex justify-between px-4 py-4">
                 <p className="font-semibold">TOTAL</p>{' '}
-                <p className="font-semibold">${totalPrice.toFixed(2)}</p>
+                <p className="font-semibold">
+                  ${(totalPrice + DELIVERY_PRICE).toFixed(2)}
+                </p>
               </div>
 
               <Link

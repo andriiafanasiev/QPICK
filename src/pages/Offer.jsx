@@ -1,7 +1,7 @@
 import DeliveryCard from '../components/DeliveryCard';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
-function Offer() {
+function Offer({ cartItems }) {
   return (
     <div className="flex flex-col md:flex-row w-full max-w-[1100px] mx-auto gap-5   px-[20px]  mt-[22px] mb-[42px]">
       <div className="flex flex-col w-full  md:w-[50%] items-start rounded-3xl shadow-primary-shadow p-4 pb-12 pt-6  relative bg-white">
@@ -49,25 +49,32 @@ function Offer() {
             Your order
           </h4>
           <div className="w-full">
-            <div className="flex flex-row w-full justify-between">
-              <p>Headphones</p>
-              <p>$299.99</p>
-            </div>
-            <div className="flex flex-row w-full justify-between">
-              <p>Headphones</p>
-              <p>$299.99</p>
-            </div>
-            <div className="flex flex-row w-full justify-between">
-              <p>Headphones</p>
-              <p>$299.99</p>
-            </div>
+            {cartItems &&
+              cartItems.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex flex-row w-full justify-between"
+                >
+                  <p>{product.name}</p>
+                  <p>{product.price * (product.quantity || 1)}$</p>
+                </div>
+              ))}
             <div className="flex flex-row w-full mt-5 justify-between">
               <p className="font-bold">Delivery</p>
-              <p>$5.99</p>
+              <p>$4.99</p>
             </div>
-            <div className="flex flex-row w-full justify-between">
+            <div className="flex flex-row w-full mt-5 justify-between">
               <p className="font-bold">Total</p>
-              <p>$999.99</p>
+              <p className="font-bold">
+                {cartItems
+                  .reduce(
+                    (sum, product) =>
+                      sum + product.price * (product.quantity || 1),
+                    4.99
+                  )
+                  .toFixed(2)}{' '}
+                $
+              </p>
             </div>
           </div>
         </div>

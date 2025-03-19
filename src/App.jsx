@@ -25,6 +25,7 @@ function AnimatedRoutes({
   handleToogleToFavorites,
   handleAddToCart,
   handleRemoveFromCart,
+  setCartItems,
 }) {
   const location = useLocation();
 
@@ -52,6 +53,7 @@ function AnimatedRoutes({
             element={
               <PageWrapper>
                 <Cart
+                  setCartItems={setCartItems}
                   cartItems={cartItems}
                   handleRemoveFromCart={handleRemoveFromCart}
                 />
@@ -90,7 +92,7 @@ function AnimatedRoutes({
             path="/offer"
             element={
               <PageWrapper>
-                <Offer />
+                <Offer cartItems={cartItems} />
               </PageWrapper>
             }
           ></Route>
@@ -164,6 +166,7 @@ function App() {
         <AnimatedRoutes
           cartItems={cartItems}
           products={products}
+          setCartItems={setCartItems}
           handleToogleToFavorites={handleToogleToFavorites}
           handleAddToCart={handleAddToCart}
           handleRemoveFromCart={handleRemoveFromCart}
