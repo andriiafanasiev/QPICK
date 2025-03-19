@@ -2,14 +2,24 @@ import DeliveryCard from '../components/DeliveryCard';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 function Offer({ cartItems, setCartItems }) {
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const navigate = useNavigate();
 
   const endOrder = () => {
     setCartItems([]);
     setOrderConfirmed(true);
+    localStorage.setItem('cart', JSON.stringify([]));
+    setTimeout(() => {
+      navigate('/'); // Перекидає на головну сторінку
+    }, 3500);
+    setTimeout(() => {
+      setOrderConfirmed(false);
+    }, 3500);
   };
+  const orderNumber = Math.floor(Math.random() * 1000000);
 
   return (
     <div className="flex w-full max-w-[1100px] mx-auto mt-[22px] mb-[42px]">
@@ -111,13 +121,16 @@ function Offer({ cartItems, setCartItems }) {
         </div>
       ) : (
         <motion.div
-          className="flex flex-col gap-5 w-full items-center justify-center"
+          className="flex flex-col gap-5 w-full items-center justify-center rounded-3xl shadow-primary-shadow p-6 px-4 mx-10  relative bg-white"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <h4 className="text-2xl font-semibold">Thanks for your order!</h4>
-          <p className="text-lg">Our manager will contact you later.</p>
+          <p className="text-lg">
+            Your order number is №{orderNumber}. Our manager will contact you
+            later.
+          </p>
         </motion.div>
       )}
     </div>
