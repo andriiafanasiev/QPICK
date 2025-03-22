@@ -1,8 +1,8 @@
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
 } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
@@ -20,158 +20,171 @@ import productsArray from './data/products';
 import './App.css';
 
 function PageWrapper({ children }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
-    >
-      {children}
-    </motion.div>
-  );
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+            {children}
+        </motion.div>
+    );
 }
 
 function AnimatedRoutes({
-  cartItems,
-  products,
-  handleToogleToFavorites,
-  handleAddToCart,
-  handleRemoveFromCart,
-  setCartItems,
+    cartItems,
+    products,
+    handleToogleToFavorites,
+    handleAddToCart,
+    handleRemoveFromCart,
+    setCartItems,
 }) {
-  const location = useLocation();
+    const location = useLocation();
 
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={<MainLayout cartItems={cartItems} products={products} />}
-        >
-          <Route
-            index
-            element={
-              <PageWrapper>
-                <Main
-                  products={products}
-                  handleToogleToFavorites={handleToogleToFavorites}
-                  handleAddToCart={handleAddToCart}
-                />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="cart"
-            element={
-              <PageWrapper>
-                <Cart
-                  setCartItems={setCartItems}
-                  cartItems={cartItems}
-                  handleRemoveFromCart={handleRemoveFromCart}
-                />
-              </PageWrapper>
-            }
-          ></Route>
-          <Route
-            path="offer"
-            element={
-              <PageWrapper>
-                <Offer setCartItems={setCartItems} cartItems={cartItems} />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="contacts"
-            element={
-              <PageWrapper>
-                <Contacts />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="favorites"
-            element={
-              <PageWrapper>
-                <Favorites
-                  products={products}
-                  handleToogleToFavorites={handleToogleToFavorites}
-                  handleAddToCart={handleAddToCart}
-                />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="privacy"
-            element={
-              <PageWrapper>
-                <Privacy />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <PageWrapper>
-                <NoPage />
-              </PageWrapper>
-            }
-          />
-        </Route>
-      </Routes>
-    </AnimatePresence>
-  );
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route
+                    path="/"
+                    element={
+                        <MainLayout cartItems={cartItems} products={products} />
+                    }
+                >
+                    <Route
+                        index
+                        element={
+                            <PageWrapper>
+                                <Main
+                                    products={products}
+                                    handleToogleToFavorites={
+                                        handleToogleToFavorites
+                                    }
+                                    handleAddToCart={handleAddToCart}
+                                />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="cart"
+                        element={
+                            <PageWrapper>
+                                <Cart
+                                    setCartItems={setCartItems}
+                                    cartItems={cartItems}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                />
+                            </PageWrapper>
+                        }
+                    ></Route>
+                    <Route
+                        path="offer"
+                        element={
+                            <PageWrapper>
+                                <Offer
+                                    setCartItems={setCartItems}
+                                    cartItems={cartItems}
+                                />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="contacts"
+                        element={
+                            <PageWrapper>
+                                <Contacts />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="favorites"
+                        element={
+                            <PageWrapper>
+                                <Favorites
+                                    products={products}
+                                    handleToogleToFavorites={
+                                        handleToogleToFavorites
+                                    }
+                                    handleAddToCart={handleAddToCart}
+                                />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="privacy"
+                        element={
+                            <PageWrapper>
+                                <Privacy />
+                            </PageWrapper>
+                        }
+                    />
+                    <Route
+                        path="*"
+                        element={
+                            <PageWrapper>
+                                <NoPage />
+                            </PageWrapper>
+                        }
+                    />
+                </Route>
+            </Routes>
+        </AnimatePresence>
+    );
 }
 
 function App() {
-  const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem('products')) || productsArray
-  );
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem('cart')) || []
-  );
-
-  const handleToogleToFavorites = (product) => {
-    const updatedProducts = products.map((item) =>
-      item.id === product.id ? { ...item, isFavorite: !item.isFavorite } : item
+    const [products, setProducts] = useState(
+        JSON.parse(localStorage.getItem('products')) || productsArray
     );
-    setProducts(updatedProducts);
-    localStorage.setItem('products', JSON.stringify(updatedProducts));
-  };
-
-  const handleAddToCart = (product) => {
-    if (!cartItems.includes(product)) {
-      toast.success(`${product.name} was added to cart`, { autoClose: 2000 });
-      const updatedCart = [...cartItems, product];
-      setCartItems(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-    }
-  };
-
-  const handleRemoveFromCart = (product) => {
-    toast.success(`${product.name} removed from cart`, { autoClose: 2000 });
-    const updatedCart = cartItems.filter(
-      (cartItem) => cartItem.id !== product.id
+    const [cartItems, setCartItems] = useState(
+        JSON.parse(localStorage.getItem('cart')) || []
     );
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-  };
 
-  return (
-    <div className="App">
-      <ToastContainer />
-      <Router>
-        <AnimatedRoutes
-          cartItems={cartItems}
-          products={products}
-          setCartItems={setCartItems}
-          handleToogleToFavorites={handleToogleToFavorites}
-          handleAddToCart={handleAddToCart}
-          handleRemoveFromCart={handleRemoveFromCart}
-        />
-      </Router>
-    </div>
-  );
+    const handleToogleToFavorites = (product) => {
+        const updatedProducts = products.map((item) =>
+            item.id === product.id
+                ? { ...item, isFavorite: !item.isFavorite }
+                : item
+        );
+        setProducts(updatedProducts);
+        localStorage.setItem('products', JSON.stringify(updatedProducts));
+    };
+
+    const handleAddToCart = (product) => {
+        if (!cartItems.includes(product)) {
+            toast.success(`${product.name} was added to cart`, {
+                autoClose: 2000,
+            });
+            const updatedCart = [...cartItems, product];
+            setCartItems(updatedCart);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+        }
+    };
+
+    const handleRemoveFromCart = (product) => {
+        toast.success(`${product.name} removed from cart`, { autoClose: 2000 });
+        const updatedCart = cartItems.filter(
+            (cartItem) => cartItem.id !== product.id
+        );
+        setCartItems(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+
+    return (
+        <div className="App">
+            <ToastContainer />
+            <Router>
+                <AnimatedRoutes
+                    cartItems={cartItems}
+                    products={products}
+                    setCartItems={setCartItems}
+                    handleToogleToFavorites={handleToogleToFavorites}
+                    handleAddToCart={handleAddToCart}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                />
+            </Router>
+        </div>
+    );
 }
 
 export default App;
